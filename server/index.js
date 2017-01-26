@@ -265,7 +265,7 @@ app.post('/addPizza', function(request, response)
 //INSERIRE CODICE QUI SOTTO
 
 
-app.post('/updatePizasByPrice', function(request, response) 
+app.post('/updatePizzasByPrice', function(request, response) 
 {
 	var headers = {};
 	headers["Access-Control-Allow-Origin"] = "*";
@@ -313,12 +313,13 @@ app.post('/updatePizasByPrice', function(request, response)
 		check = "body undefined";
 	}
     
-    if (price!="not defined" && increment!="not defined" && lower!="not defined" check!="body undefined")
+    if (price!="not defined" && increment!="not defined" && lower!="not defined" && check!="body undefined")
 	{
 		//aceptable input
 		//search for a pizza
 		var pizza = pizzaManager.updatePizzasByPrice(price, increment, lower);
 		//if exists
+    
 		if (pizza != null)
 		{
 			response.writeHead(200, headers);

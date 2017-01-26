@@ -139,34 +139,41 @@ var insertPizza = function insertPizza(pizza)
 var updatePizzasByPrice = function updatePizzasByPrice(price, increment, lower) 
 {
     var pizza;
-    var modified = [];
+    var modified = null;
     var iPrice = parseFloat(price);
     var iIncrement = parseFloat(increment);
-    
-    if (lower === true) 
+   
+    if (lower == "true") 
     {
         for (var i=0; i<menu.length; i++) 
         {
             pizza = menu[i];
             if (pizza.price > iPrice) 
             {
+                if (modified==null) {
+                    modified = [];
+                }
                 pizza.price = pizza.price + iIncrement;
-                modifed.push(pizza);
+                modified.push(pizza);
             }
         }
     }
-    else if (lower === false) 
+    else if (lower == "false") 
     {
         for (var i=0; i<menu.length; i++) 
         {
             pizza = menu[i];
             if (pizza.price < iPrice) 
             {
+                if (modified==null) {
+                    modified = [];
+                }
                 pizza.price = pizza.price + iIncrement;
-                modifed.push(pizza);
+                modified.push(pizza);
             }
         }
     }
+    
     return modified;
 }
 
